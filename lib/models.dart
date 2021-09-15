@@ -100,3 +100,15 @@ final List<Models> items = [
       imageUrl: "http://placeimg.com/640/480/animals",
       numMess: '22'),
 ];
+
+class CheckBoxListTileModel {
+  String? title;
+  bool? isCheck;
+  CheckBoxListTileModel({this.title, this.isCheck});
+}
+
+final List<CheckBoxListTileModel> itemCheckBox = [
+  CheckBoxListTileModel(title: "Java", isCheck: false),
+  CheckBoxListTileModel(title: "Dart", isCheck: false),
+  CheckBoxListTileModel(title: "Kotlin", isCheck: false),
+];
