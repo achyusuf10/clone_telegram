@@ -26,7 +26,9 @@ class _DrawerDarkState extends State<DrawerDark> {
                 children: [
                   Text(
                     "+628912345678",
-                    style: subText2,
+                    style: subText.copyWith(
+                      fontSize: 12,
+                    ),
                   ),
                   SizedBox(
                     width: 120,
@@ -37,7 +39,9 @@ class _DrawerDarkState extends State<DrawerDark> {
                         onPressed: () {},
                         child: Text(
                           "Edit",
-                          style: subText2,
+                          style: subText.copyWith(
+                            fontSize: 12,
+                          ),
                         )),
                   )
                 ],

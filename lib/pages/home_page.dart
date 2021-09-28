@@ -1,7 +1,8 @@
 import 'package:clone_tele/custom_font.dart';
-import 'package:clone_tele/drawer_dark.dart';
+import 'package:clone_tele/pages/form.dart';
+import 'package:clone_tele/view/drawer_dark.dart';
 import 'package:flutter/material.dart';
-import 'models.dart';
+import '../models.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,7 +16,10 @@ class HomePage extends StatelessWidget {
         actions: [
           Padding(
             padding: EdgeInsets.only(right: 8),
-            child: IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.search),
+            ),
           ),
         ],
       ),
@@ -24,7 +28,11 @@ class HomePage extends StatelessWidget {
         color: Color(0xFF1D2733),
         child: ListView.separated(
           itemCount: items.length,
-          separatorBuilder: (BuildContext context, int index) => const Divider(
+          separatorBuilder: (
+            BuildContext context,
+            int index,
+          ) =>
+              const Divider(
             color: Colors.black,
             height: 10,
           ),
@@ -45,35 +53,59 @@ class HomePage extends StatelessWidget {
                     style: subText),
                 offset: Offset(-1, 3),
               ),
-
               trailing: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(items[index].time ?? '',
-                      style: TextStyle(
-                          color: Color(0xFFCECECE),
-                          fontWeight: FontWeight.w300,
-                          fontSize: 12)),
+                  Text(
+                    items[index].time ?? '',
+                    style: TextStyle(
+                        color: Color(0xFFCECECE),
+                        fontWeight: FontWeight.w300,
+                        fontSize: 12),
+                  ),
                   Container(
                     decoration: BoxDecoration(
-                        color: Color(0xFF64B5EF),
-                        borderRadius: BorderRadius.circular(40)),
+                      color: Color(0xFF64B5EF),
+                      borderRadius: BorderRadius.circular(40),
+                    ),
                     child: Padding(
-                        padding: EdgeInsets.all(4),
-                        child: Text(items[index].numMess ?? '',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 14))),
+                      padding: EdgeInsets.all(4),
+                      child: Text(
+                        items[index].numMess ?? '',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 14),
+                      ),
+                    ),
                   )
                 ],
               ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyForm(
+                      messages: items[index],
+                    ),
+                  ),
+                );
+              },
             );
           },
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MyForm(
+                messages: Message(),
+              ),
+            ),
+          );
+        },
         child: Icon(Icons.create),
         backgroundColor: Color(0xFF5EA3DE),
       ),

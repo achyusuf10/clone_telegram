@@ -1,7 +1,8 @@
-import 'package:clone_tele/form.dart';
+import 'package:clone_tele/pages/form.dart';
+import 'package:clone_tele/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'home_page.dart';
+import 'pages/home_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyForm(),
+      home: SplashScreen(),
     );
   }
 }
